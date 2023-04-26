@@ -25,13 +25,40 @@ public class Main {
             empleados.agregar(empleado);
         }
 
-        // Agrega elemento con indice fuera de rango
+        //agregegar elemento fuera del rango
         Empleado empleadoNuevo = new Empleado("Mauricio","Sanchez",25494,16);
-        empleados.agregar_posicion(empleadoNuevo, 15);
+        try{
+            empleados.agregar_posicion(empleadoNuevo,15);
+        } catch(IndexOutOfBoundsException e){
+            System.out.println(e.getMessage());
+        }
 
-        empleados.obtener_posicion(15);
+        //Devolver objeto fuera del rango
+        try{
+            empleados.obtener_posicion(25);
+        }catch(IndexOutOfBoundsException e){
+            System.out.println(e.getMessage());
+        }
+        //Obtener primer elemento de una lista vacia
+        empleados.lista_vacia();
+        try{
+            empleados.obtener_primer_elemento();
+        }catch(IndexOutOfBoundsException e){
+            System.out.printf(e.getMessage());
+        }
 
-        empleados.obtener_primer_elemento();
-        empleados.obtener_ultimo_elemento();
+        //Obtener ultimo elemento de una lista vacia
+        try{
+            empleados.obtener_ultimo_elemento();
+        }catch(IndexOutOfBoundsException e){
+            System.out.printf(e.getMessage());
+        }
+
+        //Quitar elemento de una posicion que no existe
+        try{
+            empleados.remover_objeto(10);
+        }catch(IndexOutOfBoundsException e){
+            System.out.println(e.getMessage());
+        }
     }
 }

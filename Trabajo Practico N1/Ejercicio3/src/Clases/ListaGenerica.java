@@ -62,7 +62,15 @@ public class ListaGenerica<T extends Comparable<T>>{
         return elementos.get(elementos.size() - 1);
     }
 
-    public void remover_objeto(int indice) {
+    public void remover_objeto(int indice) throws IndexOutOfBoundsException {
+        if(indice > elementos.size() || indice < elementos.size()){
+            throw new IndexOutOfBoundsException("El elemento no esta en la lista");
+        }
         elementos.remove(indice);
+    }
+
+    // Lista vacia para la excepcion
+    public void lista_vacia(){
+        elementos.clear();
     }
 }
